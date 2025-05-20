@@ -1,0 +1,9 @@
+<div
+  id="completedTodos"
+  class="d-flex flex-column justify-content-center bg-white p-4 border rounded shadow-lg"
+>
+  <h4 class="text-success mb-5">{{ titleStatus }}</h4>
+  <div *ngFor="let item of todosList">
+    <app-todo-item [todoDescription]="item.description" />
+  </div>
+</div>

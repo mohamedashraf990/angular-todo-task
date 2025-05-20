@@ -1,0 +1,33 @@
+<app-header
+  (searchFilter)="getFilterResult($event)"
+  (searchInput)="getSearchInputResult($event)"
+></app-header>
+<div class="container">
+  <div class="row mt-5">
+    @if(searchCriteria === 'all') {
+    <app-todo-items
+      titleStatus="✅ Completed Todos"
+      [todosList]="filterTodoItems(completedTodos, searchInput)"
+      class="col"
+    />
+    <app-todo-items
+      titleStatus="⏳ Pending Todos"
+      [todosList]="filterTodoItems(pendingTodos, searchInput)"
+      class="col"
+    />
+    } @if(searchCriteria === 'pending') {
+    <app-todo-items
+      titleStatus="⏳ Pending Todos"
+      [todosList]="filterTodoItems(pendingTodos, searchInput)"
+      class="col"
+    />
+    } @if(searchCriteria === 'completed') {
+    <app-todo-items
+      titleStatus="✅ Completed Todos"
+      [todosList]="filterTodoItems(completedTodos, searchInput)"
+      class="col"
+    />
+    }
+  </div>
+  <app-new-todo-item (addNewTodoItem)="addNewTodoItem($event)" />
+</div>
