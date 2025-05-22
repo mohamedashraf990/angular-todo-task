@@ -1,6 +1,7 @@
 <app-header
-  (searchFilter)="getFilterResult($event)"
+  (searchFilter)="getFilterInputResult($event)"
   (searchInput)="getSearchInputResult($event)"
+  (sortInput)="getSortInputResult($event)"
 ></app-header>
 <div class="container">
   <div class="row mt-5">
@@ -13,12 +14,16 @@
     <app-todo-items
       titleStatus="⏳ Pending Todos"
       [todosList]="filterTodoItems(pendingTodos, searchInput)"
+      [showCompleted]="true"
+      (todoItemCompleted)="todoItemCompleted($event)"
       class="col"
     />
     } @if(searchCriteria === 'pending') {
     <app-todo-items
       titleStatus="⏳ Pending Todos"
       [todosList]="filterTodoItems(pendingTodos, searchInput)"
+      [showCompleted]="true"
+      (todoItemCompleted)="todoItemCompleted($event)"
       class="col"
     />
     } @if(searchCriteria === 'completed') {

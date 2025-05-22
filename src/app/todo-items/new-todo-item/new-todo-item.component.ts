@@ -11,12 +11,16 @@ import { FormsModule } from '@angular/forms';
 export class NewTodoItemComponent {
   @Output() addNewTodoItem = new EventEmitter<todoItem>();
   newTodoDescription = '';
+  newTodoTitle = '';
+  newTodoPriority = '2';
   newTodoId = Math.floor(Math.random() * 100);
 
   onAddTodoItem() {
     this.addNewTodoItem.emit({
       todoId: this.newTodoId,
       description: this.newTodoDescription,
+      title: this.newTodoTitle,
+      priority: this.newTodoPriority,
     });
   }
 }

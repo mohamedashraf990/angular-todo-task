@@ -4,6 +4,10 @@
 >
   <h4 class="text-success mb-5">{{ titleStatus }}</h4>
   <div *ngFor="let item of todosList">
-    <app-todo-item [todoDescription]="item.description" />
+    <app-todo-item
+      [todoItem]="item"
+      [showCompleted]="showCompleted"
+      (todoItemCompleted)="moveTodoToCompleted($event)"
+    />
   </div>
 </div>

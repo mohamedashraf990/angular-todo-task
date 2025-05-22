@@ -9,6 +9,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class HeaderComponent {
   @Output() searchFilter = new EventEmitter<string>();
   @Output() searchInput = new EventEmitter<string>();
+  @Output() sortInput = new EventEmitter<string>();
   // we need to have output here as well for searchInput
 
   getFilterResult(event: Event) {
@@ -19,8 +20,8 @@ export class HeaderComponent {
     const value = (event.target as HTMLSelectElement).value;
     this.searchInput.emit(value);
   }
-  // we need to send a signal output from headerComponent to the container and based on signal we recievd
-  // we will render either two todoLists or only one of them using ngif directive
-
-  // we will be missing the seach
+  getSortResult(event: Event) {
+    const value = (event.target as HTMLSelectElement).value;
+    this.sortInput.emit(value);
+  }
 }

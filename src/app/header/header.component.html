@@ -13,7 +13,18 @@
           <option value="completed">Completed Tasks</option>
         </select>
       </div>
-      <div class="col-8">
+      <div class="col-2">
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          id="sortCriteria"
+          (change)="getSortResult($event)"
+        >
+          <option selected value="1">Sort High</option>
+          <option value="0">Sort Low</option>
+        </select>
+      </div>
+      <div class="col-5">
         <div class="input-group">
           <input
             id="searchInput"

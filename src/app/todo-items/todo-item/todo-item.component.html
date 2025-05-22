@@ -1,1 +1,24 @@
-<p>{{ todoDescription }}</p>
+<div class="todo-item">
+  <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h5 class="todo-title">{{ todoItem.title }}</h5>
+      <span
+        class="priority-badge p-2 col-2 text-center text-break"
+        [ngClass]="'priority-' + todoItem.priority"
+      >
+        {{ getPriorityLabel(todoItem.priority) }}
+      </span>
+    </div>
+    <div class="d-flex flex-column align-items-start mb-2">
+      <p class="mb-4">{{ todoItem.description }}</p>
+      <button
+        type="button"
+        class="btn btn-outline-danger btn-sm"
+        (click)="completeTodoItem()"
+        *ngIf="showCompleted"
+      >
+        Complete Task
+      </button>
+    </div>
+  </div>
+</div>

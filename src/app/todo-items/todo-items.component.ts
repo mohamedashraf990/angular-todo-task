@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { CommonModule, NgFor } from '@angular/common';
 import { todoItem } from './todo.model';
@@ -12,4 +12,10 @@ import { todoItem } from './todo.model';
 export class TodoItemsComponent {
   @Input({ required: true }) titleStatus = '';
   @Input() todosList: todoItem[] = [];
+  @Input() showCompleted?: boolean;
+  @Output() todoItemCompleted: EventEmitter<todoItem> = new EventEmitter();
+
+  moveTodoToCompleted(todoItem: todoItem) {
+    this.todoItemCompleted.emit(todoItem);
+  }
 }

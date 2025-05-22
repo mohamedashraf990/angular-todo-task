@@ -18,18 +18,39 @@
       </div>
       <form>
         <div class="modal-body">
+          <label class="form-label">Todo Title</label>
           <input
-            class="form-control"
-            aria-label="With textarea"
+            class="form-control mb-2"
+            id="modalBody"
+            [(ngModel)]="newTodoTitle"
+            name="newTodoTitle"
+          />
+
+          <label class="form-label">Todo Description</label>
+          <textarea
+            class="form-control mb-2"
             id="modalBody"
             [(ngModel)]="newTodoDescription"
             name="newTodoDescription"
-          />
+          ></textarea>
+
+          <label class="form-label">Task Priority</label>
+          <select
+            class="form-select"
+            [(ngModel)]="newTodoPriority"
+            name="newTodoPriority"
+          >
+            <option selected value="2">High Priority</option>
+            <option value="1">Medium Priority</option>
+            <option value="0">Low Priority</option>
+          </select>
         </div>
       </form>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
         <button
           type="button"
           class="btn btn-primary"
